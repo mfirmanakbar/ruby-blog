@@ -22,6 +22,9 @@ How to deploy:
 
 * then add, commit and pust to github
 
+* To add your SSH key to your heroku account so you don't have to use username and password everytime ->
+> heroku keys:add
+
 * intall heroku from https://devcenter.heroku.com/articles/heroku-cli and check installed
 > heroku
 > heroku --version
@@ -36,3 +39,7 @@ How to deploy:
 
 * if you want to rename domain exec this (example: https://beta-blog-firman.herokuapp.com/)
 > heroku rename beta-blog-firman
+
+* to open restart and open
+> heroku restart
+> heroku open
