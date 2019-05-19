@@ -7,9 +7,13 @@ class ArticlesController < ApplicationController
   def create
     # render plain: params[:article].inspect # show result from form array format
     @art = Article.new(article_params)
-    @art.save
-    logModel(@art)
-    # redirect_to articles_show(@art)
+    if @art.save
+      flash[:notice] = "Article was successfully created"
+      logModel(@art)
+      redirect_to article_path(@art)
+    else
+      render 'new'
+    end
   end
 
   def logModel(art)
@@ -22,6 +26,10 @@ class ArticlesController < ApplicationController
     puts " updated_at: #{art.updated_at} "
     puts "|========================================|"
     puts
+  end
+
+  def show
+    @art = Article.find(params[:id])
   end
 
   # get Value from Form

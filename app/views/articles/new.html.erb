@@ -1,5 +1,14 @@
 <h1>Create a new Article</h1>
 
+<% if @art.errors.any? %>
+  <h2>The following errors prevented the article from getting created</h2>
+  <ul>
+    <% @art.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%# @art here from controller to set in every field into the form %>
 <%= form_for @art do |f| %>
   <p>
