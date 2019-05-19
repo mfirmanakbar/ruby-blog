@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 
+  # define methods that can call private method set_article
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
+
   def index
     @art_list = Article.all
   end
@@ -8,22 +11,11 @@ class ArticlesController < ApplicationController
     @art = Article.new # @art here for get component model
   end
 
-  def show
-    @art = Article.find(params[:id])
-  end
-
   def edit
-    @art = Article.find(params[:id])
-  end
-
-  def destroy
-    @art = Article.find(params[:id])
-    flash[:notice] = "Article was successfully deleted"
-    redirect_to articles_path
+    # already defined on top before_action # @art = Article.find(params[:id])
   end
 
   def create
-    # render plain: params[:article].inspect # show result from form array format
     @art = Article.new(article_params)
     if @art.save
       flash[:notice] = "Article was successfully created"
@@ -35,7 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @art = Article.find(params[:id])
+    # already defined on top before_action # @art = Article.find(params[:id])
     if @art.update(article_params)
       flash[:notice] = "Article was successfully updated"
       logModel(@art)
@@ -45,8 +37,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    # already defined on top before_action # @art = Article.find(params[:id])
+  end
+
+  def destroy
+    # already defined on top before_action # @art = Article.find(params[:id])
+    flash[:notice] = "Article was successfully deleted"
+    redirect_to articles_path
+  end
+
   # get Value from Form
   private
+    def set_article
+      @art = Article.find(params[:id])
+    end
+
     def article_params
       params.require(:article).permit(:title, :description)
     end
