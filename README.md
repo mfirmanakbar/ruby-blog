@@ -35,7 +35,7 @@ How to deploy:
 > heroku open
 
 * if you got an application error exec this
-> heroku run rails console
+> heroku run rails console `to open irb database console`
 
 * if you want to rename domain exec this (example: https://beta-blog-firman.herokuapp.com/)
 > heroku rename beta-blog-firman
@@ -126,6 +126,9 @@ end`
 > article.errors.any?
 > article.errors.full_messages
 
-* Add articles routes.rb 
+* Add articles routes.rb
 `resources :articles # this one for POST GET to CRUD`
 > rails routes `to see list of routes`
+
+* After deploy we need to run this for heroku
+> heroku run rails db:migrate `to create any table we have done in development`

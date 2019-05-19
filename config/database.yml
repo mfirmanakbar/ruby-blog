@@ -24,6 +24,8 @@ production:
   # <<: *default
   # database: db/production.sqlite3
   adapter: postgresql
-  database: my_database_production
+  database: d5hec98hb10mo6
+  username: mukgwndsgcrlow
+  password: 1f7e5a51f40632b69a5c5b00c58faf19615f722192cffeeba6a4ba1ea26c14ca
   pool: 5
   timeout: 5000
