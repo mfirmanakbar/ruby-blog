@@ -1,7 +1,19 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @art_list = Article.all
+  end
+
   def new
     @art = Article.new # @art here for get component model
+  end
+
+  def show
+    @art = Article.find(params[:id])
+  end
+
+  def edit
+    @art = Article.find(params[:id])
   end
 
   def create
@@ -16,6 +28,23 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    @art = Article.find(params[:id])
+    if @art.update(article_params)
+      flash[:notice] = "Article was successfully updated"
+      logModel(@art)
+      redirect_to article_path(@art)
+    else
+      render 'edit'
+    end
+  end
+
+  # get Value from Form
+  private
+    def article_params
+      params.require(:article).permit(:title, :description)
+    end
+
   def logModel(art)
     puts
     puts "|========================================|"
@@ -28,14 +57,5 @@ class ArticlesController < ApplicationController
     puts
   end
 
-  def show
-    @art = Article.find(params[:id])
-  end
-
-  # get Value from Form
-  private
-    def article_params
-      params.require(:article).permit(:title, :description)
-    end
 
 end
