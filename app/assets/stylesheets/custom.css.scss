@@ -1,5 +1,19 @@
 @import "bootstrap";
 
+body {
+  // background: #ecf0f1;
+}
+
 .center {
   text-align: center;
+}
+
+.jumbotron {
+  background-image: asset-url('bg-jumbo1.jpg');
+  color: #ffffff;
+  // min-height: 300px;
+}
+
+.white-bg {
+  background-color: #ffffff;
 }
