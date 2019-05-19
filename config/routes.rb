@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
 
+  resources :articles # this one for POST GET to CRUD
+
 end

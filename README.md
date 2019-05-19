@@ -103,7 +103,7 @@ end`
 
 > article = Article.new(title: "my 2nd title", description: "my 2nd description") `we can also do this`
 
-* how to Find and Update eecord
+* how to Find and Update record
 > article = Article.find(2)
 > article.title = "my 2nd title edited"
 > article.save
@@ -125,3 +125,7 @@ end`
 * To find out error message in model console
 > article.errors.any?
 > article.errors.full_messages
+
+* Add articles routes.rb 
+`resources :articles # this one for POST GET to CRUD`
+> rails routes `to see list of routes`

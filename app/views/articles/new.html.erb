@@ -1,0 +1,16 @@
+<h1>Create a new Article</h1>
+
+<%# @art here from controller to set in every field into the form %>
+<%= form_for @art do |f| %>
+  <p>
+    <%= f.label :title %> <br/>
+    <%= f.text_field :title %> <br/>
+  </p>
+  <p>
+    <%= f.label :description %> <br/>
+    <%= f.text_area :description %> <br/>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
