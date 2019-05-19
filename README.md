@@ -165,7 +165,8 @@ Setup Bootstrap CSS
 
 * go to https://github.com/twbs/bootstrap-sass
 
-* you will see this script and `gem 'bootstrap-sass', '~> 3.4.1'` copy paste it into GEMFILE. After that run
+* you will see this script and `gem 'bootstrap-sass', '~> 3.4.1'` copy paste it into GEMFILE.  
+* Above the `gem 'sass-rails'` and After that run
 > bundle install --without production
 
 * create file assets/stylesheets/custome.css.scss and add this
@@ -173,6 +174,6 @@ Setup Bootstrap CSS
 @import "bootstrap";`
 
 * open assets/javascripts/application.js add this as sequential
-`//= require jquery
+`// require jquery
 //= require rails-ujs
 //= require bootstrap-sprockets`
