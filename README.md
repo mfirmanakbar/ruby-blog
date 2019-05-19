@@ -158,3 +158,21 @@ timeout: 5000`
 > git push heroku master
 > heroku run rails db:migrate `to create any table that we have done in development`
 > heroku open
+
+
+
+Setup Bootstrap CSS
+
+* go to https://github.com/twbs/bootstrap-sass
+
+* you will see this script and `gem 'bootstrap-sass', '~> 3.4.1'` copy paste it into GEMFILE. After that run
+> bundle install --without production
+
+* create file assets/stylesheets/custome.css.scss and add this
+`@import "bootstrap-sprockets";
+@import "bootstrap";`
+
+* open assets/javascripts/application.js add this as sequential
+`//= require jquery
+//= require rails-ujs
+//= require bootstrap-sprockets`
