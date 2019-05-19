@@ -1,5 +1,7 @@
 # README
 
+My Demo Link: https://beta-blog-firman.herokuapp.com
+
 How to deploy:
 
 * Add config-prod in Gemfile
@@ -130,5 +132,29 @@ end`
 `resources :articles # this one for POST GET to CRUD`
 > rails routes `to see list of routes`
 
-* After deploy we need to run this for heroku
-> heroku run rails db:migrate `to create any table we have done in development`
+
+
+The following must be execute after Create Module / update Schema when deploy production:
+
+* For first time don't forget Create a Database first in heroku
+  1. Inside the newly created app, switch to Resources tab.
+  2. Under Add-ons, search for Heroku Postgres and then select from the suggested list.
+  3. In the popup shown, select free Hobby Dev - Free plan, click Provision.
+  4. Click on the just added database (Heroku Postgres :: Database).
+  5. Scroll towards the bottom of the page and click on View Credentials button (In Tab Setting ). You will see the database credentials you will need to use when connecting to this database from API Express.
+
+* after that update our database.yml
+`adapter: postgresql
+database: secret-secret-
+username: secret-secret-secret
+password: secret-secret-secret-secret-secret-secret-secret-secret
+pool: 5
+timeout: 5000`
+
+* then commit and push to github
+
+* Run
+> heroku login
+> git push heroku master
+> heroku run rails db:migrate `to create any table that we have done in development`
+> heroku open
