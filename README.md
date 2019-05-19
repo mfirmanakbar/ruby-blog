@@ -112,4 +112,16 @@ end`
 * how to Delete record
 > article = Article.find(2)
 > article.destroy
-`Article Destroy (1.8ms)  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 2]]
+`Article Destroy (1.8ms)  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 2]]`
+
+* Add Validation in models (article.rb)
+`validates :title, presence: true, length: { minumum: 3, maximum: 50 }`
+
+* After update Model we need to reload console
+> reload!
+> exit
+> rails console
+
+* To find out error message in model console
+> article.errors.any?
+> article.errors.full_messages
