@@ -7,19 +7,52 @@
   </ul>
 <% end %>
 
-<%# @art here from controller to set in every field into the form %>
-<%= form_for @art do |f| %>
-  <p>
-    <%= f.label :title %> <br/>
-    <%= f.text_field :title %> <br/>
-  </p>
-  <p>
-    <%= f.label :description %> <br/>
-    <%= f.text_area :description %> <br/>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <!-- panel -->
+    <div class="card">
+      <div class="card-header">
+        Form Input
+      </div>
+      <div class="card-body">
 
-<%= link_to 'Back to Article List', articles_path %>
+        <%# @art here from controller to set in every field into the form %>
+        <%= form_for @art do |f| %>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+              <%= f.label :title %>
+            </label>
+            <div class="col-sm-10">
+              <%= f.text_field :title, class: "form-control", placeholder: "title of article ...", autofocus: true%>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+              <%= f.label :description %>
+            </label>
+            <div class="col-sm-10">
+              <%= f.text_area :description, class: "form-control", rows: 6, placeholder: "title of article ...", autofocus: true%>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+            </label>
+            <div class="right col-sm-10">
+              <%= f.submit class:"btn btn-primary" %>
+            </div>
+          </div>
+
+        <% end %>
+
+        <div class="center">
+          <%= link_to 'Back to Article List', articles_path %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
