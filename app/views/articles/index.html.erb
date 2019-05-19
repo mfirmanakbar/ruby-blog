@@ -5,14 +5,24 @@
 <table border="1">
 
   <tr>
+    <th>ID</th>
+    <th>Created At</th>
+    <th>Update At</th>
     <th>Title</th>
     <th>Description</th>
+    <th colspan="3">Action</th>
   </tr>
 
   <% @art_list.each do |art| %>
   <tr>
+    <td><%= art.id %></td>
+    <td><%= art.created_at %></td>
+    <td><%= art.updated_at %></td>
     <td><%= art.title %></td>
     <td><%= art.description %></td>
+    <td><%= link_to 'Show', article_path(art) %></td>
+    <td><%= link_to 'Edit', edit_article_path(art) %></td>
+    <td><%= link_to 'Destroy', nil %></td>
   </tr>
   <% end %>
 
