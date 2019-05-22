@@ -235,3 +235,8 @@ URL: https://github.com/mfirmanakbar/ruby-blog.git
 Tags reachable
 Prune
 ```
+
+## How to commit with branching
+
+* Just don't forget when commit and push please select Local and Remote `Underdevelopment-branch`
+* Then we will merge to `master` soon maybe better in github page
