@@ -10,8 +10,7 @@
       </div>
       <div class="card-body">
 
-        <%# @art here from controller to set in every field into the form %>
-        <%= form_for @art do |f| %>
+        <%= form_for(@art, :html => {class: "form-horizontal", role: "form"} ) do |f| %>
 
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">
@@ -36,7 +35,7 @@
             </label>
             <div class="left col-sm-10">
               <%= f.submit class:"btn btn-success" %>
-              <%= link_to 'Back to Article List', articles_path, class: "btn btn-outline-info" %>              
+              <%= link_to 'Back to Article List', articles_path, class: "btn btn-outline-info" %>
             </div>
           </div>
 

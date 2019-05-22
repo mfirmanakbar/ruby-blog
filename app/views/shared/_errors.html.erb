@@ -1,5 +1,5 @@
 
-<% if @art.errors.any? %>
+<% if obj.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">
       <%= pluralize(obj.errors.count, "Error") %>

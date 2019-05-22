@@ -133,6 +133,9 @@ Article Load (0.3ms)  SELECT  "articles".* FROM "articles" LIMIT ?  [["LIMIT", 1
 => #<ActiveRecord::Relation [#<Article id: 1, title: "this is my first article", description: "this is my first article's description", created_at: "2019-05-19 00:12:25", updated_at: "2019-05-19 00:12:25">]>
 ```
 
+`to check true or false. article nil or not`
+> article.new_record?
+
 > article = Article.new(title: "my 2nd title", description: "my 2nd description") `we can also do this`
 
 * how to Find and Update record
@@ -280,5 +283,26 @@ end
 ```
 * look at our terminal / cmd. by right should showing the log of debug
 * we can call variable like `@art` which we already defined inside that controller
+* type `params` to show all paramters
 * type `n` then `ENTER` to go the next line of debug
 * fot stop the debug just `CTRL + D` and it goes back to rails server
+
+
+## How to create Hash Secure Password
+
+* add `has_secure_password` in /app/models./user.rb
+* create new migration `rails migration add_password_digest_to_users` then write this
+```
+class AddPasswordDigestToUsers < ActiveRecord::Migration[5.2]
+  def change
+    add_column :users, :password_digest, :string
+  end
+end
+```
+* then run `rails db:migrate`
+* how to use?
+`if we save user.password = "password" `
+`it will return has user.password = "$2a$10$EuSH7ctK1kXNuKPnO7MaGuXnfE1yrbntClRLVbUnsKp..."`
+* how to testing Run
+> user.authenticate("password")
+`it will return true`
