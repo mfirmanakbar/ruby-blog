@@ -282,3 +282,22 @@ end
 * we can call variable like `@art` which we already defined inside that controller
 * type `n` then `ENTER` to go the next line of debug
 * fot stop the debug just `CTRL + D` and it goes back to rails server
+
+
+## How to create Hash Secure Password
+
+* add `has_secure_password` in /app/models./user.rb
+* create new migration `rails migration add_password_digest_to_users` then write this
+```
+class AddPasswordDigestToUsers < ActiveRecord::Migration[5.2]
+  def change
+    add_column :users, :password_digest, :string
+  end
+end
+```
+* how to use?
+`if we save user.password = "password" `
+`it will return has user.password = "$2a$10$EuSH7ctK1kXNuKPnO7MaGuXnfE1yrbntClRLVbUnsKp..."`
+* how to testing Run
+> user.authenticate("password")
+`it will return true`
