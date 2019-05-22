@@ -133,6 +133,9 @@ Article Load (0.3ms)  SELECT  "articles".* FROM "articles" LIMIT ?  [["LIMIT", 1
 => #<ActiveRecord::Relation [#<Article id: 1, title: "this is my first article", description: "this is my first article's description", created_at: "2019-05-19 00:12:25", updated_at: "2019-05-19 00:12:25">]>
 ```
 
+`to check true or false. article nil or not`
+> article.new_record?
+
 > article = Article.new(title: "my 2nd title", description: "my 2nd description") `we can also do this`
 
 * how to Find and Update record
