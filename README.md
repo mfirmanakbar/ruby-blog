@@ -166,11 +166,11 @@ Article Update (2.4ms)  UPDATE "articles" SET "title" = ?, "updated_at" = ? WHER
 The following must be execute after Create Module / update Schema when deploy production:
 
 * For first time don't forget Create a Database first in heroku
-  1. Inside the newly created app, switch to Resources tab.
-  2. Under Add-ons, search for Heroku Postgres and then select from the suggested list.
-  3. In the popup shown, select free Hobby Dev - Free plan, click Provision.
-  4. Click on the just added database (Heroku Postgres :: Database).
-  5. Scroll towards the bottom of the page and click on View Credentials button (In Tab Setting ). You will see the database credentials you will need to use when connecting to this database from API Express.
+  - Inside the newly created app, switch to Resources tab.
+  - Under Add-ons, search for Heroku Postgres and then select from the suggested list.
+  - In the popup shown, select free Hobby Dev - Free plan, click Provision.
+  - Click on the just added database (Heroku Postgres :: Database).
+  - Scroll towards the bottom of the page and click on View Credentials button (In Tab Setting ). You will see the database  credentials you will need to use when connecting to this database from API Express.
 
 * after that update our database.yml
 ```
