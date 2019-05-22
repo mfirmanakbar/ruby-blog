@@ -1,10 +1,27 @@
-<h1>Showing selected article</h1>
+<h3>Show Article with ID: <%= @art.id %> </h3>
+<hr/>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= @art.title %>
+    </h5>
+    <small>Last Update: <%= @art.updated_at %> | Created: <%= @art.created_at %></small
+    <p class="card-text">
+      <br/><br/>
+      <%= @art.description %>
+    </p>
 
-<p>Id: <%= @art.id %></p>
-<p>Title: <%= @art.title %></p>
-<p>Description: <%= @art.description %></p>
-<p>Created At: <%= @art.created_at %></p>
-<p>Updated At: <%= @art.updated_at %></p>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to 'Edit', edit_article_path(@art), class: "btn btn-xs btn-warning" %>
+      <%=
+        link_to 'Delete',
+        article_path(@art),
+        method: :delete,
+        data: { confirm: "Are you sure want to delete this article?"},
+        class: "btn btn-xs btn-danger"
+      %>
+      <%= link_to 'Back', articles_path, class: "btn  btn-info" %>
+    </div>
 
-<%= link_to 'Edit this Article', edit_article_path(@art) %> | 
-<%= link_to 'Back to Article List', articles_path %>
+  </div>
+</div>
