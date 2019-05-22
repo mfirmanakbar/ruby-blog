@@ -12,13 +12,15 @@
           <h5 class="card-title">
             <%= art.title %> [ID: <%= art.id %>]
           </h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            Last Updated :<%= art.updated_at %> |
-            Created: <%= art.created_at %>
-          </h6>
+          <small class="card-subtitle mb-2 text-muted">
+            created by : <%= art.user.username if art.user %> |
+            Last Updated :<%= time_ago_in_words(art.updated_at) %> ago |
+            Created: <%= time_ago_in_words(art.created_at) %> ago
+          </small>
           <hr>
           <p class="card-text">
-            <%= art.description %>
+            <!-- example: description to desc...   -->
+            <%= truncate(art.description, length: 100) %>
           </p>
           <hr>
           <p align="right">
