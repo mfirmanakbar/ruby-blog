@@ -258,3 +258,27 @@ Prune
 * open IRB with run `rails console`
 > Article.first
 > Article.last
+
+
+## How to debug
+* example we want to debug Article Controller in Create function
+* just put `debugger` after line `def create` and comment out `# @art.user = User.first`
+```
+def create
+  debugger
+  @art = Article.new(article_params)
+  # to find users limit 1. this is for us Hard code the user_id for articles table
+  # @art.user = User.first
+  if @art.save
+    flash[:success] = "Article was successfully created"
+    logModel(@art)
+    redirect_to article_path(@art)
+  else
+    render 'new'
+  end
+end
+```
+* look at our terminal / cmd. by right should showing the log of debug
+* we can call variable like `@art` which we already defined inside that controller
+* type `n` then `ENTER` to go the next line of debug
+* fot stop the debug just `CTRL + D` and it goes back to rails server

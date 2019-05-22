@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # debugger
     @art = Article.new(article_params)
 
     # to find users limit 1. this is for us Hard code the user_id for articles table
