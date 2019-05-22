@@ -240,3 +240,11 @@ Prune
 
 * Just don't forget when commit and push please select Local and Remote `Underdevelopment-branch`
 * Then we will merge to `master` soon maybe better in github page
+
+## How to merge branch to Master
+* Then Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Swich/CheckOut`
+* Choose Master (local not remote)
+* TortoiseGit --> Merge
+* Choose Branch Remotes/Underdevelopment-Branch/Underdevelopment-Branch
+* Then Push it (no need commit/ commit already when we merged)
+* to start coding again `Swich/CheckOut` choose Underdevelopment-Branch (local not remote)
