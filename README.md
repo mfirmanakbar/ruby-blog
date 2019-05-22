@@ -66,7 +66,7 @@ Start to Database Operation:
 
 * rollback is when we need to change existing file in `/db/migrate/fileName.rb`
 
-* rollback doesn't apply to migration that we have created a new file 
+* rollback doesn't apply to migration that we have created a new file
 * then we don't need to run `rails db:rollback` just need to run `rails db:migrate`
 
 * add column `t.text :description` in db/migrate/x_create_articles.rb then run this again to generate the schema.rb
@@ -253,3 +253,8 @@ Prune
 * Choose Branch Remotes/Underdevelopment-Branch/Underdevelopment-Branch
 * Then Push it (no need commit/ commit already when we merged)
 * to start coding again `Swich/CheckOut` choose Underdevelopment-Branch (local not remote)
+
+## How to get first and last record limit 1
+* open IRB with run `rails console`
+> Article.first
+> Article.last
