@@ -64,6 +64,11 @@ Start to Database Operation:
 * When we want add new column. this script to drop table and will gone from schema.rb
 > rails db:rollback
 
+* rollback is when we need to change existing file in `/db/migrate/fileName.rb`
+
+* rollback doesn't apply to migration that we have created a new file 
+* then we don't need to run `rails db:rollback` just need to run `rails db:migrate`
+
 * add column `t.text :description` in db/migrate/x_create_articles.rb then run this again to generate the schema.rb
 > rails db:migrate
 

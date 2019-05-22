@@ -1,5 +1,11 @@
 class User < ApplicationRecord
 
+  # one to many #mark-relationship-1
+  has_many :articles
+
+  # before user hit the database, we make email to lowercase 
+  before_save { self.email = email.downcase }
+
   # Validation
   # username & email must be present and unique
   # validate email format using regex
