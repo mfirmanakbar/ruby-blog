@@ -295,6 +295,7 @@ class AddPasswordDigestToUsers < ActiveRecord::Migration[5.2]
   end
 end
 ```
+* then run `rails db:migrate`
 * how to use?
 `if we save user.password = "password" `
 `it will return has user.password = "$2a$10$EuSH7ctK1kXNuKPnO7MaGuXnfE1yrbntClRLVbUnsKp..."`
