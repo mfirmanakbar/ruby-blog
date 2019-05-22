@@ -214,3 +214,12 @@ Setup Bootstrap CSS
 //= require rails-ujs
 //= require bootstrap-sprockets
 ```
+
+
+## How to create branch in github with TortoiseGit
+
+* Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Create Branch`
+* Fill up the branch name example `Underdevelopment-branch`
+* Ensure choose Base On `Head(Master)`
+* Then Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Swich/CheckOut`
+* Choose the branch
