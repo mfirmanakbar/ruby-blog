@@ -5,19 +5,22 @@ My Demo Link: https://beta-blog-firman.herokuapp.com
 How to deploy:
 
 * Add config-prod in Gemfile
-  `group :production do
-  gem 'pg' # it's for postgress on production
-  end`
+```
+group :production do
+gem 'pg' # it's for postgress on production
+end
+```
 
-* Move SQLite in Gemfile, from global into development-test
-  `gem 'sqlite3'`
+* Move SQLite in Gemfile, from global into development-test `gem 'sqlite3'`
 
 * Open database.yml change production to using postgress
-  `production:
-  adapter: postgresql
-  database: my_database_production
-  pool: 5
-  timeout: 5000`
+```
+production:
+adapter: postgresql
+database: my_database_production
+pool: 5
+timeout: 5000
+```
 
 * after change Gemfile don't forget exec this one
 > bundle update
@@ -36,8 +39,8 @@ How to deploy:
 > git push heroku master
 > heroku open
 
-* if you got an application error exec this
-> heroku run rails console `to open irb database console`
+* if you got an application error exec this `to open irb database console`
+> heroku run rails console
 
 * if you want to rename domain exec this (example: https://beta-blog-firman.herokuapp.com/)
 > heroku rename beta-blog-firman
@@ -76,32 +79,54 @@ Start to Database Operation:
 > rails generate migration add_description_to_articles
 
 * add this scripts to the db/migrate/x_add_description_to_articles.rb
-`add_column :articles, :description, :text # table : column : column type
+```
+add_column :articles, :description, :text # table : column : column type
 add_column :articles, :created_at, :datetime
-add_column :articles, :updated_at, :datetime`
+add_column :articles, :updated_at, :datetime
+```
 
 * update schema.rb
 > rails db:migrate
 
 * now we create Model `app\models\article.rb`
-`class Article < ApplicationRecord  
-end`
+```
+class Article < ApplicationRecord  
+end
+```
 
 * we going to Create and Read record for database with rails console
-> rails console `info: to open console`
-> Article.all `this name of article.rb will show query select "articles".* from "articles"`
-> article = Article.new `to make var = model, to storing data`
-> article.title = "this is my first article" `to storing article title`
-> article.description = "this is my first article's description" `to storing article description`
-> article `to show record in model var`
-> artivle.save `to save into database`
+`info: to open console`
+> rails console
 
-`INSERT INTO "articles" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "this is my first article"], ["description", "this is my first article's description"], ["created_at", "2019-05-19 00:12:25.061288"], ["updated_at", "2019-05-19 00:12:25.061288"]]`
+`this name of article.rb will show query select "articles".* from "articles"`
+> Article.all
 
-> Article.all `show record`
+`to make var = model, to storing data`
+> article = Article.new
 
-`Article Load (0.3ms)  SELECT  "articles".* FROM "articles" LIMIT ?  [["LIMIT", 11]]
-=> #<ActiveRecord::Relation [#<Article id: 1, title: "this is my first article", description: "this is my first article's description", created_at: "2019-05-19 00:12:25", updated_at: "2019-05-19 00:12:25">]>`
+`to storing article title`
+> article.title = "this is my first article"
+
+`to storing article description`
+> article.description = "this is my first article's description"
+
+`to show record in model var`
+> article
+
+`to save into database`
+> artivle.save
+
+```
+INSERT INTO "articles" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "this is my first article"], ["description", "this is my first article's description"], ["created_at", "2019-05-19 00:12:25.061288"], ["updated_at", "2019-05-19 00:12:25.061288"]]
+```
+
+`show record`
+> Article.all
+
+```
+Article Load (0.3ms)  SELECT  "articles".* FROM "articles" LIMIT ?  [["LIMIT", 11]]
+=> #<ActiveRecord::Relation [#<Article id: 1, title: "this is my first article", description: "this is my first article's description", created_at: "2019-05-19 00:12:25", updated_at: "2019-05-19 00:12:25">]>
+```
 
 > article = Article.new(title: "my 2nd title", description: "my 2nd description") `we can also do this`
 
@@ -109,11 +134,15 @@ end`
 > article = Article.find(2)
 > article.title = "my 2nd title edited"
 > article.save
-`Article Update (2.4ms)  UPDATE "articles" SET "title" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["title", "my 2nd title edited"], ["updated_at", "2019-05-19 01:22:45.623705"], ["id", 2]]`
+
+```
+Article Update (2.4ms)  UPDATE "articles" SET "title" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["title", "my 2nd title edited"], ["updated_at", "2019-05-19 01:22:45.623705"], ["id", 2]]
+```
 
 * how to Delete record
 > article = Article.find(2)
 > article.destroy
+
 `Article Destroy (1.8ms)  DELETE FROM "articles" WHERE "articles"."id" = ?  [["id", 2]]`
 
 * Add Validation in models (article.rb)
@@ -144,19 +173,23 @@ The following must be execute after Create Module / update Schema when deploy pr
   5. Scroll towards the bottom of the page and click on View Credentials button (In Tab Setting ). You will see the database credentials you will need to use when connecting to this database from API Express.
 
 * after that update our database.yml
-`adapter: postgresql
+```
+adapter: postgresql
 database: secret-secret-
 username: secret-secret-secret
 password: secret-secret-secret-secret-secret-secret-secret-secret
 pool: 5
-timeout: 5000`
+timeout: 5000
+```
 
 * then commit and push to github
 
 * Run
 > heroku login
 > git push heroku master
-> heroku run rails db:migrate `to create any table that we have done in development`
+
+`to create any table that we have done in development`
+> heroku run rails db:migrate
 > heroku open
 
 
@@ -170,10 +203,14 @@ Setup Bootstrap CSS
 > bundle install --without production
 
 * create file assets/stylesheets/custome.css.scss and add this
-`@import "bootstrap-sprockets";
-@import "bootstrap";`
+```
+@import "bootstrap-sprockets";
+@import "bootstrap";
+```
 
 * open assets/javascripts/application.js add this as sequential
-`// require jquery
+```
+// require jquery
 //= require rails-ujs
-//= require bootstrap-sprockets`
+//= require bootstrap-sprockets
+```
