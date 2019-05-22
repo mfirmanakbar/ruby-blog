@@ -280,6 +280,7 @@ end
 ```
 * look at our terminal / cmd. by right should showing the log of debug
 * we can call variable like `@art` which we already defined inside that controller
+* type `params` to show all paramters
 * type `n` then `ENTER` to go the next line of debug
 * fot stop the debug just `CTRL + D` and it goes back to rails server
 
