@@ -8,4 +8,10 @@ Rails.application.routes.draw do
 
   resources :articles # this one for POST GET to CRUD
 
+  get 'signup', to: 'users#new'
+  # post 'users', to: 'users#create'
+
+  #it means we already difined get 'signup', to: 'users#new'
+  resources :users, except: [:new]
+
 end
