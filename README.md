@@ -216,10 +216,22 @@ Setup Bootstrap CSS
 ```
 
 
-## How to create branch in github with TortoiseGit
+## How to create local branch in github with TortoiseGit
 
 * Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Create Branch`
 * Fill up the branch name example `Underdevelopment-branch`
 * Ensure choose Base On `Head(Master)`
 * Then Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Swich/CheckOut`
 * Choose the branch
+
+## How to create remote branch in github with TortoiseGit
+
+* Right-Click in `D:\ror\ruby-blog` then `TortoiseGit` --> `Settings`
+* Click `Git --> Remote`
+* Create new one and save it
+```
+remote: Underdevelopment-Branch
+URL: https://github.com/mfirmanakbar/ruby-blog.git
+Tags reachable
+Prune
+```
