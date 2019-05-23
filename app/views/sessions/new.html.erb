@@ -1,0 +1,47 @@
+<%# render 'shared/errors', obj: @usr %>
+
+<div class="row">
+  <!-- <div class="col-lg-12"> -->
+  <div class="offset-md-3 col-md-6 offset-md-3 center">
+
+    <div class="card">
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-body">
+
+        <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path ) do |f| %>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+              <%= f.label :email %>
+            </label>
+            <div class="col-sm-10">
+              <%= f.email_field :email, class: "form-control", placeholder: "Enter Email Address" %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+              <%= f.label :password %>
+            </label>
+            <div class="col-sm-10">
+              <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">
+            </label>
+            <div class="left col-sm-10">
+              <%= f.submit "Log in", class:"btn btn-primary btn-block" %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
