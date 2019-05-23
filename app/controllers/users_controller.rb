@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:edit, :update, :show]
+
   def index
     @usrList = User.all
   end
@@ -20,11 +22,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @usr = User.find(params[:id])
+    # @usr = User.find(params[:id]) # already defined
   end
 
   def update
-    @usr = User.find(params[:id])
+    # @usr = User.find(params[:id]) # already defined
     if @usr.update(user_params)
       flash[:success] = "Your account was updated successfully "
       redirect_to articles_path
@@ -35,12 +37,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @usr = User.find(params[:id])
+    # @usr = User.find(params[:id]) # already defined
+    # @user_articles = @user.artilces.paginate() # still have an error
   end
 
   private
     def user_params
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def set_user
+      @usr = User.find(params[:id])
     end
 
 end

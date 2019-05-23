@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # render json: user
+    # render json: { errors: ["wrong username or password"] }, status: :unauthorized
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
@@ -14,15 +16,7 @@ class SessionsController < ApplicationController
       flash[:danger] = "Failed to log in"
       render 'new'
     end
-
-    # render json: user
-    # render json: { errors: ["wrong username or password"] }, status: :unauthorized
   end
-
-  private
-    def check_password
-      @art = Article.find(params[:id])
-    end
 
   def destroy
     session[:user_id] = nil
