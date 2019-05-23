@@ -1,0 +1,12 @@
+<h1 align="center">Welcome to <%= @usr.username %>'s page</h1>
+<div class="row">
+  <div class="col">
+    <div class="offset-md-4 col-md-4 offset-md-4 center">
+      <!-- find this in /app/helpers/application_helper.rb -->
+      <%= gravatar_for @usr %>
+    </div>
+  </div>
+</div>
+<h4 align="center"><%= @usr.username %>'s articles</h4>
+
+<%= render 'articles/article', obj: @usr.articles %>
