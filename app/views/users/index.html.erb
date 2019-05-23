@@ -1,0 +1,25 @@
+<h1>Hello blogger</h1>
+<hr>
+
+<% @usrList.each do |usr| %>
+  <div class="row">
+    <div class="offset-md-4 col-md-4 offset-md-4 center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to gravatar_for(usr), user_path(usr) %>
+          </h5>
+          <hr>
+          <div class="card-text center">
+              <%= link_to usr.username, user_path(usr) %>
+              <br>
+              <small>
+                <%= pluralize(usr.articles.count, "article") if usr.articles %>
+              </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+<% end %>

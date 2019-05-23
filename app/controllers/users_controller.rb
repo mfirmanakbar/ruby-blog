@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @usrList = User.all
+  end
+
   def new
     @usr = User.new
   end
