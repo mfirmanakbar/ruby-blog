@@ -4,7 +4,16 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
 
   def index
-    @art_list = Article.all
+    # no pagination
+    # @art_list = Article.all
+
+    # with pagination
+    @articles = Article.paginate(page: params[:page], per_page: 5).order(id: :desc)
+
+    # sorry this is just example
+    # @car_paginator = Car.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+    # @cars = @car_paginator.group_by { |r| r.created_at.to_date }
+
   end
 
   def new
@@ -44,6 +53,7 @@ class ArticlesController < ApplicationController
 
   def show
     # already defined on top before_action # @art = Article.find(params[:id])
+    # @user_articles = Article.paginate(page: params[:page], per_page: 5).order(id: :desc)
   end
 
   def destroy
