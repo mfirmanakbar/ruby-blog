@@ -4,6 +4,12 @@ body {
   // background: #ecf0f1;
 }
 
+.white-link a,
+.white-link a:hover,
+.white-link a:focus {
+    color: #fefefe; // white
+}
+
 .center {
   text-align: center;
 }

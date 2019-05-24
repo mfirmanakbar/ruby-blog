@@ -25,14 +25,20 @@
           <hr>
           <p align="right">
             <%= link_to 'Show', article_path(art), class:"card-link" %>
-            <%= link_to 'Edit', edit_article_path(art), class:"card-link" %>
-            <%=
-              link_to 'Delete',
-              article_path(art),
-              method: :delete,
-              data: {confirm: "are you sure delete Article with ID:  #{art.id} ?"},
-              class:"card-link"
-            %>
+
+            <% if logged_in? && current_user == art.user %>
+
+              <%= link_to 'Edit', edit_article_path(art), class:"card-link" %>
+              <%=
+                link_to 'Delete',
+                article_path(art),
+                method: :delete,
+                data: {confirm: "are you sure delete Article with ID:  #{art.id} ?"},
+                class:"card-link"
+              %>
+
+            <% end %>
+
           </p>
         </div>
       </div>

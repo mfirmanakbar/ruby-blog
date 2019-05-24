@@ -29,7 +29,8 @@ class ArticlesController < ApplicationController
     @art = Article.new(article_params)
 
     # to find users limit 1. this is for us Hard code the user_id for articles table
-    @art.user = User.first
+    # @art.user = User.first
+    @art.user = current_user
 
     if @art.save
       flash[:success] = "Article was successfully created"

@@ -13,13 +13,17 @@
       <li class="nav-item active">
         <%= link_to 'Articles', articles_path, class: "nav-link"%>
       </li>
+      <li class="nav-item active">
+        <%= link_to 'Users', users_path, class: "nav-link"%>
+      </li>
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Action
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Create new article', new_article_path, class: "dropdown-item"%>
-          <%# link_to 'My Profile', user_path(@current_user), class: "dropdown-item"%>
+          <%= link_to 'New Article', new_article_path, class: "dropdown-item"%>
+          <%# look at application_contrller current_user is public %>
+          <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Settings</a>
         </div>

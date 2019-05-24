@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to <%= @usr.username %>'s page</h1>
+<!-- <h1 align="center">Welcome to <%# @usr.username %>'s page</h1> -->
 <div class="row">
   <div class="col">
     <div class="offset-md-4 col-md-4 offset-md-4 center">
@@ -7,6 +7,14 @@
     </div>
   </div>
 </div>
-<h4 align="center"><%= @usr.username %>'s articles</h4>
+
+<br/>
+<h5 align="center"><%= @usr.username %></h5>
+<p align="center">
+  <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+</p>
+<br/><br/>
+
+<h4 align="center">My articles</h4>
 
 <%= render 'articles/article', obj: @usr.articles %>
