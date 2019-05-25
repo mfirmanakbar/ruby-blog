@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
 
   # define methods that can call private method set_article
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     # no pagination
@@ -34,7 +36,7 @@ class ArticlesController < ApplicationController
 
     if @art.save
       flash[:success] = "Article was successfully created"
-      logModel(@art)
+      # logModel(@art)
       redirect_to article_path(@art)
     else
       render 'new'
@@ -67,7 +69,14 @@ class ArticlesController < ApplicationController
   # get Value from Form
   private
     def set_article
+      # debugger
       @art = Article.find(params[:id])
+      # begin
+      #   @art = Article.find(params[:id])
+      # rescue ActiveRecord::RecordNotFound
+      #   flash[:danger] = "Article not found"
+      #   redirect_to articles_path
+      # end
     end
 
     def article_params
@@ -84,6 +93,13 @@ class ArticlesController < ApplicationController
     puts " updated_at: #{art.updated_at} "
     puts "|========================================|"
     puts
+  end
+
+  def require_same_user
+    if current_user != @art.user
+      flash[:danger] = "You can only edit or delete your own articles"
+      redirect_to root_path
+    end
   end
 
 
