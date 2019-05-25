@@ -14,8 +14,10 @@ class UsersController < ApplicationController
   def create
     @usr = User.new(user_params)
     if @usr.save
-      flash[:success] = "Welcome to the beta-firman-blog #{@usr.username}"
-      redirect_to articles_path
+      # flash[:success] = "Welcome to the beta-firman-blog #{@usr.username}"
+      # redirect_to articles_path
+      flash[:success] = "Hi #{@usr.username}, your account was registered successfully. Please Log In."
+      redirect_to login_path
     else
       flash[:danger] = "Failed to register"
       render 'new'
