@@ -23,7 +23,14 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'New Article', new_article_path, class: "dropdown-item"%>
           <%# look at application_contrller current_user is public %>
-          <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
+          <%
+            profileText = "";
+            if current_user.admin?
+              profileText = " Admin"
+            end
+          %>
+          <%= link_to 'My Profile' + profileText , user_path(current_user), class: "dropdown-item"%>
+
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Settings</a>
         </div>

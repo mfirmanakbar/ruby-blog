@@ -38,7 +38,7 @@
 
     <div class="btn-group" role="group" aria-label="Basic example">
 
-      <% if logged_in? && current_user == @art.user %>
+      <% if logged_in? && (current_user == @art.user || current_user.admin?) %>
 
         <%= link_to 'Edit', edit_article_path(@art), class: "btn btn-xs btn-warning" %>
         <%=

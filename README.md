@@ -306,3 +306,9 @@ end
 * how to testing Run
 > user.authenticate("password")
 `it will return true`
+
+
+* Update boolean admin
+> user = User.find(7)
+> user.admin? `true`
+> user.toggle!(:admin) `updated`

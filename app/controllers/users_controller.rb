@@ -14,10 +14,16 @@ class UsersController < ApplicationController
   def create
     @usr = User.new(user_params)
     if @usr.save
+
+      # will go to user page after signup
+      # session[:user_id] = @usr.id
       # flash[:success] = "Welcome to the beta-firman-blog #{@usr.username}"
-      # redirect_to articles_path
+      # redirect_to user_path(@user)
+
+      # need login first
       flash[:success] = "Hi #{@usr.username}, your account was registered successfully. Please Log In."
       redirect_to login_path
+
     else
       flash[:danger] = "Failed to register"
       render 'new'
