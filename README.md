@@ -316,6 +316,10 @@ end
 
 ## How to Test apps
 
+* in rails 5 i change this:
+* comment out this becuase already deprecated `gem 'chromedriver-helper'`
+* then add `gem 'webdrivers', '~> 3.0'`
+
 * create migration to add category table `> rails generate migration add_categories`
 ```
 class AddCategories < ActiveRecord::Migration[5.2]
