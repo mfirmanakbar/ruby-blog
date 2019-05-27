@@ -312,3 +312,45 @@ end
 > user = User.find(7)
 > user.admin? `true`
 > user.toggle!(:admin) `updated`
+
+
+## How to Test apps
+
+* create migration to add category table `> rails generate migration add_categories`
+```
+class AddCategories < ActiveRecord::Migration[5.2]
+  def change
+    create_table :categories do |t|
+      t.string :name
+      t.timestamps
+    end
+  end
+end
+
+```
+* then run `> rails db:migrate`
+
+* create model in /app/models/category.rb
+
+* create category_test.rb in /test/models/category_test.rb
+```
+require 'test_helper'
+
+class CategoryTest < ActiveSupport::TestCase
+
+  def setup
+    @category = Category.new(name: "sports")
+  end
+
+  test "category should be valid" do
+    asssert @category.valid?
+  end
+
+end
+```
+
+* run it with `> rails test`
+
+* if got some error run this
+> bundle exec rails db:migrate
+> bundle exec rails db:test:prepare
