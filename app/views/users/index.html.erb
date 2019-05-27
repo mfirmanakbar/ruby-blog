@@ -16,6 +16,13 @@
               <small>
                 <%= pluralize(usr.articles.count, "article") if usr.articles %>
               </small>
+              <% if logged_in? and current_user.admin? %>
+                <p align='center'>
+                  <%= link_to "Delete this user", user_path(usr), method: :delete,
+                    data: { confirm:"Are you sure want to delete this user and all their articles?" }
+                  %>
+                </p>
+              <% end %>
           </div>
         </div>
       </div>

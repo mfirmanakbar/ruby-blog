@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
-  # one to many #mark-relationship-1
-  has_many :articles
+  # has_many :articles --> one to many #mark-relationship-1
+  # dependent: :destroy --> to delete user and their articles created
+  has_many :articles, dependent: :destroy
 
   # before user hit the database, we make email to lowercase
   before_save { self.email = email.downcase }
