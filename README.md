@@ -2,7 +2,15 @@
 
 My Demo Link: https://beta-blog-firman.herokuapp.com
 
-How to deploy:
+## Create and Run
+
+> rails new ruby-blog
+> cd ruby-blog
+> rails server
+
+* then open http://localhost:3000/
+
+## How to deploy:
 
 * Add config-prod in Gemfile
 ```
@@ -50,8 +58,7 @@ timeout: 5000
 > heroku open
 
 
-
-Start to Database Operation:
+## Database Operation:
 
 * Create (db/migrate)
 > rails generate migration create_articles
@@ -170,8 +177,7 @@ Article Update (2.4ms)  UPDATE "articles" SET "title" = ?, "updated_at" = ? WHER
 > rails routes `to see list of routes`
 
 
-
-The following must be execute after Create Module / update Schema when deploy production:
+## The following must be execute after Create Module / update Schema when deploy production:
 
 * For first time don't forget Create a Database first in heroku
   - Inside the newly created app, switch to Resources tab.
@@ -201,11 +207,9 @@ timeout: 5000
 > heroku open
 
 
-
-Setup Bootstrap CSS
+## Setup Bootstrap CSS
 
 * go to https://github.com/twbs/bootstrap-sass
-
 * you will see this script and `gem 'bootstrap-sass', '~> 3.4.1'` copy paste it into GEMFILE.  
 * Above the `gem 'sass-rails'` and After that run
 > bundle install --without production
