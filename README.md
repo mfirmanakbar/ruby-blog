@@ -21,6 +21,11 @@ end
 
 * Move SQLite in Gemfile, from global into development-test `gem 'sqlite3'`
 
+* run 
+> bundle
+
+
+
 * Open database.yml change production to using postgress
 ```
 production:
